@@ -31,7 +31,7 @@ function MovieCard({ id, title, poster, overview }) {
       <CardFooter pt={2}>
         <Link to={`/movies/${id}`} style={{ width: "100%" }}>
           <Button m="auto" bg="green.300" color="white" w="100%">
-            View joke & more
+            View more details
           </Button>
         </Link>
       </CardFooter>

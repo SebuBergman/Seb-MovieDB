@@ -1,4 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
+import Settings from "src/features/ai-jokes/Settings";
 
 export default function Header() {
   return (
@@ -11,7 +12,7 @@ export default function Header() {
         m="0 auto"
         px="6"
       >
-        Settings
+        <Settings />
       </Flex>
     </Box>
   );
