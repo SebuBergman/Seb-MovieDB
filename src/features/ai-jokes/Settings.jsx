@@ -21,14 +21,14 @@ import {
   Portal,
   Text,
 } from "@chakra-ui/react";
-import { ruleAdded, ruleRemoved } from "./aiJokesSlice";
+import { ruleAdded, ruleRemoved, selectJokeRules } from "./aiJokesSlice";
 
 const initialFormState = { name: "", description: "" };
 
 function Settings() {
   const dispatch = useDispatch();
   const [form, setForm] = useState(initialFormState);
-  const rules = useSelector((state) => state.aiJokes.rules);
+  const rules = useSelector(selectJokeRules);
 
   const HandleRuleRemove = (ruleName) => {
     dispatch(ruleRemoved(ruleName));

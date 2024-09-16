@@ -10,7 +10,7 @@ import {
   selectMoviesStatus,
 } from "./moviesSlice";
 
-function MoviesList() {
+function MovieList() {
   const dispatch = useDispatch();
   const toast = useToast();
   const movies = useSelector(selectAllMovies);
@@ -75,4 +75,4 @@ function MoviesList() {
   );
 }
 
-export default MoviesList;
+export default MovieList;
