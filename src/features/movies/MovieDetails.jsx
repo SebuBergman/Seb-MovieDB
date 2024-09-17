@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import {
+  Badge,
   Box,
-  Button,
   Card,
   CardBody,
   CardFooter,
@@ -20,6 +20,14 @@ import { selectMovieById } from "./moviesSlice";
 function MovieDetails() {
   const { movieId } = useParams();
   const movie = useSelector((state) => selectMovieById(state, movieId));
+
+  const movieDate = movie?.release_date.split("-").reverse().join(".");
+
+  /*const movieDate = (movie) => {
+    movie?.release_date.split("-").join(".");
+  };*/
+
+  console.log(movieDate);
   return (
     <Box minH="100vh">
       <Link to="/">
@@ -48,8 +56,12 @@ function MovieDetails() {
           <CardBody>
             <Heading size="md">{movie.title}</Heading>
 
-            <Text py="2">{movie.overview}</Text>
-            <Text py="">{movie.vote_average}</Text>
+            <Text py="2" color="gray.600">
+              Rating: <Badge colorScheme="yellow">{movie?.vote_average}</Badge>{" "}
+              Vote Count: <Badge>{movie?.vote_count}</Badge>
+            </Text>
+            <Text py="2">Release data: {movieDate}</Text>
+            <Text py="">{movie.overview}</Text>
           </CardBody>
 
           <CardFooter>

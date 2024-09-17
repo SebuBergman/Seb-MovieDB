@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import { fetchPopularMovies } from "./api";
 
 const initialState = {
@@ -31,7 +31,14 @@ const moviesSlice = createSlice({
   },
 });
  
-export const selectAllMovies = (state) => state.movies.movies;
+export const selectAllMovies = createSelector(
+  [(state) => state.movies.movies],
+  (mov) => {
+    const movies = [...mov];
+    movies.sort((movieA, movieB) => movieB.vote_average - movieA.vote_average);
+    return movies;
+  }
+);
 export const selectMoviesStatus = (state) => state.movies.status;
 export const selectMoviesError = (state) => state.movies.error;
 export const selectMovieById = (state, movieId) =>

@@ -14,6 +14,7 @@ function MovieList() {
   const dispatch = useDispatch();
   const toast = useToast();
   const movies = useSelector(selectAllMovies);
+  console.log(movies);
   const moviesStatus = useSelector(selectMoviesStatus);
   const moviesError = useSelector(selectMoviesError);
 
